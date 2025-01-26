@@ -8,7 +8,7 @@ import uuid
 from gradio_client import Client
 from aiogram.utils import exceptions
 from aiogram.types import InputMediaPhoto
-from config import UPLOADS_DIR, RESULTS_DIR, PROMTS_DIR
+from config import UPLOADS_DIR, RESULTS_DIR, PROMTS_DIR, API_HTTPS
 import tensorflow_hub as hub
 import tensorflow as tf
 import subprocess
@@ -75,7 +75,7 @@ async def process_style_choice(user_id, state, photo_filename, bot, chosen_style
     # получаем рандомные числа
     seed_rnd = random.randint(1, 9611608263085119394)
     # Отправляем запрос к API
-    client = Client("https://bcb7ff99d62f1ca8c8.gradio.live", serialize=False)
+    client = Client(API_HTTPS, serialize=False)
     #client = Client("http://127.0.0.1:7860/", serialize=False)
     try:
         import base64
@@ -151,65 +151,72 @@ async def process_style_choice(user_id, state, photo_filename, bot, chosen_style
     except Exception as e:
         print("Ошибка при запросе API:", e)
 
+import urllib.parse
+
 async def process_result(user_id: int, state, result: tuple, bot, chosen_style, chosen_style_description, chosen_style_neodescription):
     max_retries = 15
     retry_delay = 10  # seconds
-    #print("Результат от API:", result)
-    print("Длина кортежа result:", len(result))
+    GRADIO_STATIC_PATH = "D:/FooocusControl/Fooocus/outputs/gradio"  # Статичная часть пути
+
     try:
-        # Проверяем, видимо ли изображение в Gallery
         if result[2]['visible']:
             image_info = result[2]['value'][0]
-            #print (image_info)
-            # Получаем путь к файлу изображения
             image_path = image_info.get('name')
+            
             if image_path and os.path.isfile(image_path):
-                # Пример: Создаем путь для сохранения обработанного изображения
+                # Извлекаем хеш-папку из пути
+                path_parts = image_path.split(os.sep)
+                hash_folder = next((part for part in path_parts if len(part) == 40), None)
+                
+                if not hash_folder:
+                    print(f"Не найден хеш в пути: {image_path}")
+                    return
+
+                # Формируем корректный серверный путь
+                server_side_path = f"{GRADIO_STATIC_PATH}/{hash_folder}/image.png"
+                encoded_path = urllib.parse.quote(server_side_path.replace("\\", "/"), safe='/:')
+                image_url = f"{API_HTTPS}/file={encoded_path}"
+                print(f"Сформирован URL изображения: {image_url}")
+
+                # Подготовка папки для сохранения
                 result_folder = os.path.join(RESULTS_DIR, str(user_id))
                 os.makedirs(result_folder, exist_ok=True)
-                result_filename2 = os.path.join(result_folder, f"{str(uuid.uuid4())}.png")
-                #result_filename2=image_path
-                # Переносим файл изображения в папку с результатами для экономии места
-                #shutil.move(image_path, result_filename2)
-                print (image_path)
-                print (result_filename2)
-                shutil.move(image_path, result_filename2)
-#                # Ждем пока файл полностью переместится
-                time.sleep(1)  # Задержка на 1 секунду
+                result_filename = os.path.join(result_folder, f"{uuid.uuid4()}.png")
 
-        # Отправляем фото с подписью через бота
-        with open(result_filename2, 'rb') as photo:
-            retries = 0
-            while retries < max_retries:
-                try:
-                    with open(result_filename2, 'rb') as photo:
+                retries = 0
+                while retries < max_retries:
+                    try:
                         await bot.send_photo(
                             chat_id=user_id,
-                            photo=photo,
+                            photo=image_url,
                             caption=f"*Выбран стиль: *{chosen_style}\n"
                                     f"*Промт: *{chosen_style_description}\n"
                                     f"*Негативный промт: *{chosen_style_neodescription}\n",
                             parse_mode="Markdown"
                         )
-                    print("Изображение успешно отправлено пользователю id:" + str(user_id))
-                    break  # Выходим из цикла, если отправка прошла успешно
-                except exceptions.RetryAfter as e:
-                    print(f"Ошибка: Бот требует повторную отправку через {e.timeout} секунд.")
-                    retries += 1
-                    time.sleep(e.timeout)  # Ждем указанное количество секунд перед повторной попыткой
-                except exceptions.TelegramAPIError as e:
-                    if "ClientOSError" in str(e) and "[WinError 64]" in str(e):
-                        print("Ошибка: Сетевое имя более недоступно. Повторная попытка.")
-                    elif "read of closed file" in str(e):
-                        print("Ошибка: Файл уже закрыт. Повторная попытка.")
-                    else:
-                        print(f"Ошибка при отправке изображения: {e}")
-                        break  # Прекращаем повторные попытки, если возникла другая ошибка
+                        print(f"Изображение успешно отправлено пользователю id:{user_id}")
+
+                        # Перемещаем файл после успешной отправки
+                        shutil.move(image_path, result_filename)
+                        break
+
+                    except exceptions.RetryAfter as e:
+                        print(f"RetryAfter: Повтор через {e.timeout} сек.")
+                        retries += 1
+                        await asyncio.sleep(e.timeout)
+                    
+                    except exceptions.TelegramAPIError as e:
+                        if "ClientOSError" in str(e) and "[WinError 64]" in str(e):
+                            print("Сетевая ошибка. Повтор...")
+                            retries += 1
+                            await asyncio.sleep(retry_delay)
+                        else:
+                            print(f"Критическая ошибка: {e}")
+                            break
 
     except Exception as e:
-        print(f"Ошибка при обработке результата пользователя {user_id}:", e)
+        print(f"Общая ошибка для {user_id}:", e)
 
-    # Возвращаемся в начальное состояние
     await DialogStates.Continue.set()
 
 async def apply_style(user_id, state, processing_message_id, photo_filename, model, bot):
