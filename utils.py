@@ -162,7 +162,7 @@ async def process_result(user_id: int, state, result: tuple, bot, chosen_style, 
         if result[2]['visible']:
             image_info = result[2]['value'][0]
             image_path = image_info.get('name')
-            
+            print(image_path)
             if image_path and os.path.isfile(image_path):
                 # Извлекаем хеш-папку из пути
                 path_parts = image_path.split(os.sep)

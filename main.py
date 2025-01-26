@@ -43,7 +43,7 @@ warnings.filterwarnings("ignore", category=UserWarning)  # Игнорирова�
 # Инициализация бота и диспетчера
 bot = Bot(
     token=API_TOKEN,
-    timeout=260
+    timeout=420
 )
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
