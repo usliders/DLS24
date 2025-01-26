@@ -75,8 +75,8 @@ pip install -r requirements.txt
     Перенос стиля между двумя изображениями
     Поддержка разрешений до 4K
     Адаптивный learning rate
-    Fooocus Integration
-    Casting Phoebe in Style - 9 предустановленных стилей
+    Fooocus Integration [спасибо](https://github.com/lllyasviel/Fooocus/releases?page=3) # version 2.1.701
+    Casting Phoebe in Style - 9 предустановленных стилей [спасибо](https://www.kaggle.com/code/koklengyeo/casting-phoebe-in-style/notebook)
 
 Автоматическая постобработка
 Пакетная обработка
