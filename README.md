@@ -45,7 +45,7 @@ cd DLS24
         ├── API_TOKEN = "683348xxxxxxxxxxxxxxxxxxxxcPPPQU"
         ├── API_HTTPS = "https://c91cbbae5da9617c02.gradio.live" # брать из запуска контейнера с fooocus
         ├── TIME_ASK = 150
-```
+
 
 🖥 Запуск
     Локально (Windows/Linux)
@@ -128,6 +128,7 @@ pre-commit run --all-files
 pytest tests/
 Откройте Pull Request
 
+```
 📧 Контакты
 Автор: [Юрий]
 Курс: Deep Learning School 2023-2024
