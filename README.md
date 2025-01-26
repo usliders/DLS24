@@ -128,8 +128,9 @@ pre-commit run --all-files
 pytest tests/
 Откройте Pull Request
 
-```
+
 📧 Контакты
 Автор: [Юрий]
 Курс: Deep Learning School 2023-2024
 Поддержка: [usliders@mail.ru]
+```
