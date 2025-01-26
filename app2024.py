@@ -4,7 +4,7 @@ import uuid
 import logging
 from aiogram import Bot, types
 from aiogram.dispatcher import FSMContext
-from config import UPLOADS_DIR, RESULTS_DIR
+from config import UPLOADS_DIR, RESULTS_DIR, TIME_ASK
 from nst import NeuralStyleTransfer
 from aiogram.types import Message
 import asyncio
@@ -76,7 +76,7 @@ async def handle_style_photo(message: types.Message, state: FSMContext, bot: Bot
 
         # Запускаем таймер
         timer_msg = await message.answer("⏳ Начинаю обработку...")
-        timer_task = asyncio.create_task(update_timer(timer_msg, 120))
+        timer_task = asyncio.create_task(update_timer(timer_msg, TIME_ASK))
 
         # Основная обработка
         processor = NeuralStyleTransfer(img_size=512)
