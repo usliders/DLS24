@@ -8,6 +8,6 @@ PROMTS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".", "data"
 LOG_FILE_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "bot_log.log"))
 encoded_image = None
 IMAGE_SIZE = (512, 512)
-API_HTTPS = "https://c91cbbae5da9617c02.gradio.live"
+API_HTTPS = "https://54c3278bc4cfd3871a.gradio.live"
 TIME_ASK = 150
 
