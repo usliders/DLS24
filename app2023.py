@@ -1,12 +1,13 @@
 import os
 from aiogram.dispatcher import FSMContext
+from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram import Bot, Dispatcher, executor, types
 from PIL import Image
 import base64
 import uuid
 from io import BytesIO
 from config import UPLOADS_DIR, RESULTS_DIR, PROMTS_DIR, API_TOKEN
-from states import StyleChoice  # Импортируем классы состояний
+from states import StyleChoice, DialogStates  # Импортируем классы состояний
 from aiogram.types import InputMediaPhoto
 from utils import check_service_availability, process_style_choice, process_result, apply_style
 import random
@@ -178,7 +179,7 @@ async def handle_style_choice_callback(query: types.CallbackQuery, state: FSMCon
             # Получаем массив путей к стилизованным изображениям
             # stylized_images = await apply_style(user_id, state)
             await apply_style(user_id, state, processing_message_id, photo_filename, model, bot)
-
+            
 async def handle_style_transfer(message: types.Message, state: FSMContext, bot: Bot):
     user_id = message.from_user.id
     unique_folder = os.path.join(UPLOADS_DIR, str(user_id))

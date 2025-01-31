@@ -101,6 +101,7 @@ async def handle_style_photo(message: types.Message, state: FSMContext, bot: Bot
         with open(result_path, 'rb') as photo:
             await message.answer_photo(photo, caption="🎉 Результат готов!")
 
+
     except Exception as e:
         logger.error(f"Ошибка обработки: {str(e)}", exc_info=True)
         await message.answer("⚠ Ошибка обработки. Попробуйте другие изображения.")
@@ -109,4 +110,3 @@ async def handle_style_photo(message: types.Message, state: FSMContext, bot: Bot
         if processor is not None:
             del processor
             gc.collect()
-        await state.finish()

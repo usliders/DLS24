@@ -89,9 +89,21 @@ async def send_welcome(message: types.Message, state: FSMContext):
 
     await message.answer("Выберите вариант:", reply_markup=reply_markup)
     await DialogStates.ChoosingVariant.set()
+
+async def handle_start_button(message: types.Message, state: FSMContext):
+    #await DialogStates.Continue.set()
+    await message.answer("...")
+    # Добавляем две кнопки для выбора варианта
+    reply_markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+    variant1_button = types.KeyboardButton("две фото (проект 24)")
+    variant2_button = types.KeyboardButton("одно фото (проект 23)")
+    reply_markup.add(variant1_button, variant2_button)
+
+    await message.answer("Выберите вариант:", reply_markup=reply_markup)
+    await DialogStates.ChoosingVariant.set()
     
 # Обработчик кнопки "Начать"
-async def handle_start_button(message: types.Message, state: FSMContext):
+async def handle_start_button2(message: types.Message, state: FSMContext):
     #await state.finish()
     await send_welcome(message, state)
 
@@ -138,7 +150,6 @@ async def return_to_start(message: types.Message, state: FSMContext):
 # Регистрация обработчиков
 def register_handlers(dp: Dispatcher):
     dp.register_message_handler(send_welcome, commands=['start', 'help'])
-    dp.register_message_handler(handle_start_button, lambda message: message.text.lower() == 'начать сначало', state="DialogStates:finish")
     dp.register_message_handler(handle_variant_choice, lambda message: message.text in ["две фото (проект 24)", "одно фото (проект 23)"], state="*")
     dp.register_message_handler(partial(handle_photos, bot=bot), content_types=types.ContentTypes.PHOTO, state="*")
     dp.register_callback_query_handler(partial(handle_style_choice_callback, bot=bot, model=model), lambda query: True, state="StyleChoice:ChoosingStyle")
@@ -146,6 +157,7 @@ def register_handlers(dp: Dispatcher):
     dp.register_message_handler(return_to_start, commands=['start', 'help'], state="*")
     dp.register_message_handler(handle_content_photo, content_types=types.ContentTypes.PHOTO, state="DialogStates:WaitingForContentPhoto")
     dp.register_message_handler(handle_style_photo, content_types=types.ContentTypes.PHOTO, state="DialogStates:WaitingForStylePhoto")
+    dp.register_message_handler(handle_start_button, lambda message: message.text in ["две фото (проект 24)", "одно фото (проект 23)"], state="DialogStates.Finish")    
     #dp.register_message_handler(handle_style_photo, lambda message: message.text.lower() == 'начать сначало', state="DialogStates:finish")
 # Определяем асинхронную функцию on_startup, которая будет вызываться при запуске бота
 async def on_startup(dp):

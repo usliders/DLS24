@@ -14,7 +14,7 @@ class DialogStates(StatesGroup):
     WaitingForContentPhoto = State()
     WaitingForStylePhoto = State()
     WaitingForAlpha = State()
-    finish = State()
+    Finish = State()
     Continue = State()
 
     

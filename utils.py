@@ -8,7 +8,7 @@ import uuid
 from gradio_client import Client
 from aiogram.utils import exceptions
 from aiogram.types import InputMediaPhoto
-from config import UPLOADS_DIR, RESULTS_DIR, PROMTS_DIR, API_HTTPS
+from config import UPLOADS_DIR, RESULTS_DIR, PROMTS_DIR, API_HTTPS, GRADIO_STATIC_PATH
 import tensorflow_hub as hub
 import tensorflow as tf
 import subprocess
@@ -18,6 +18,8 @@ import tempfile
 import base64
 from states import StyleChoice, DialogStates  # Импортируем классы состояний
 from aiogram import Bot, Dispatcher, executor, types
+import gc
+import urllib.parse
 
 def download_file(url, path):
     response = requests.get(url, stream=True)
@@ -69,8 +71,6 @@ async def process_style_choice(user_id, state, photo_filename, bot, chosen_style
     chosen_style_description = data.get("chosen_style_description")
     chosen_style_neodescription = data.get("chosen_style_neodescription")
     from app2023 import photo_filename
-    from aiogram import Bot, Dispatcher, executor, types
-
 
     # получаем рандомные числа
     seed_rnd = random.randint(1, 9611608263085119394)
@@ -151,18 +151,11 @@ async def process_style_choice(user_id, state, photo_filename, bot, chosen_style
     except Exception as e:
         print("Ошибка при запросе API:", e)
 
-import urllib.parse
-
 async def process_result(user_id: int, state, result: tuple, bot, 
                         chosen_style, chosen_style_description, 
                         chosen_style_neodescription):
     max_retries = 15
     retry_delay = 10  # seconds
-    
-    # Конфигурационные параметры (должны быть определены в вашем проекте)
-    API_HTTPS = "https://c91cbbae5da9617c02.gradio.live"  # Базовый URL сервера
-    GRADIO_STATIC_PATH = "D:/FooocusControl/Fooocus/outputs/gradio"  # Статичная часть пути на сервере
-    RESULTS_DIR = "data/results"  # Локальная папка для сохранения результатов
 
     try:
         if result[2]['visible']:
@@ -234,9 +227,10 @@ async def process_result(user_id: int, state, result: tuple, bot,
 
     except Exception as e:
         print(f"Общая ошибка обработки для пользователя {user_id}: {str(e)}")
-
-    # Возврат в исходное состояние
-    await state.set_state(DialogStates.Continue)
+    finally:
+        # Возврат в исходное состояние
+        await DialogStates.Finish.set()
+        #await finish(message, state)
 
 async def apply_style(user_id, state, processing_message_id, photo_filename, model, bot):
     # Загружаем исходное изображение
@@ -295,7 +289,13 @@ async def apply_style(user_id, state, processing_message_id, photo_filename, mod
         # Обработка случая, когда нет стилизованных изображений (если нужно что-то выполнить в этом случае)
         pass
         #DialogStates.Continue.set()
-
+        #await finish(message, state)
+    #await DialogStates.Finish.set()
+    # Очистка ресурсов
+    del original_image_data, style_images, media
+    tf.keras.backend.clear_session()
+    gc.collect()
+    
 async def process_style_transfer(content_image_path, style_image_path):
     # Запуск Streamlit скрипта для обработки изображений
     result = subprocess.run(["streamlit", "run", "app.py", "--", content_image_path, style_image_path], capture_output=True, text=True)
