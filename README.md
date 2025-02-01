@@ -10,15 +10,50 @@
 
 Кросс-платформенное решение для нейропереноса стилей с интеграцией в Telegram Bot. Поддерживает работу как на локальных GPU-машинах, так и в Google Colab.
 
+Вот универсальный вариант с комбинированным оформлением, который сразу можно вставить в README.md:
+
+```markdown
+## 🎥 Видео-демонстрации проекта
+
+> 📌 **Важно**: Для просмотра видео нажмите на заголовок. Может потребоваться авторизация на Rutube.
+
+### 🎬 Основные демонстрации
+- **🔊 Голосовой колаб-перенос**  
+  [![Watch Video](https://img.shields.io/badge/Смотреть_видео-FF6F61?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/e59ea01ef65e585586f0572f386337c3/?p=0PWijFxG5hQqBWq5D4r09Q)
+  ```text
+  Описание: Перенос голоса с коллаборативным подходом
+  Длительность: 2:45
+  ```
+
+- **🎨 Fooocus колаб-версия**  
+  [![Watch Video](https://img.shields.io/badge/Смотреть_видео-0081CB?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/f06b249eb33d03b5e4f2240e059a43f6/?p=KCbj_Lcdo9wJwtLfXGyXdw)
+  ```text
+  Описание: Работа с Fooocus в колаб-среде
+  Длительность: 4:20
+  ```
+
+- **⚡ Локальный GPU запуск**  
+  [![Watch Video](https://img.shields.io/badge/Смотреть_видео-00C853?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/36f90805b2cc8e4cdcd0d421a5023916/?p=RD-FbaWR87bmdHle_7Cwng)
+  ```text
+  Описание: Демонстрация работы на локальном GPU
+  Длительность: 3:15
+  ```
+
+---
+
+📌 *Для лучшего отображения обновите страницу после первого клика по ссылке.*
+```
+
+  
 ## 🎥 Видео-демонстрации проекта
 ```text
 📂 project/
 ├── 📂 tests/
 │   └── 📂 docs/
 │       └── 📂 video_demos/
-│           ├── 📄 <iframe width="560" height="315" src="https://rutube.ru/video/private/e59ea01ef65e585586f0572f386337c3/?p=0PWijFxG5hQqBWq5D4r09Q" frameborder="0" allowfullscreen></iframe> Проект_2024_Demo_голосовое_колаб_перенос_2023.mp4
-│           ├── 📄 <iframe width="560" height="315" src="https://rutube.ru/video/private/f06b249eb33d03b5e4f2240e059a43f6/?p=KCbj_Lcdo9wJwtLfXGyXdw" frameborder="0" allowfullscreen></iframe> Проект_2024_Demo_Fooocus_колаб.mp4
-│           └── 📄 <iframe width="560" height="315" src="https://rutube.ru/video/private/36f90805b2cc8e4cdcd0d421a5023916/?p=RD-FbaWR87bmdHle_7Cwng" frameborder="0" allowfullscreen></iframe> Проект_2024_Demo_локальный_GPU_колаб_закончился.mp4
+│           ├── 🎬 [Голосовой колаб-перенос 2023](https://rutube.ru/video/private/e59ea01ef65e585586f0572f386337c3/?p=0PWijFxG5hQqBWq5D4r09Q)
+│           ├── 🎮 [Fooocus колаб](https://rutube.ru/video/private/f06b249eb33d03b5e4f2240e059a43f6/?p=KCbj_Lcdo9wJwtLfXGyXdw)
+│           └── 💻 [Локальный GPU колаб](https://rutube.ru/video/private/36f90805b2cc8e4cdcd0d421a5023916/?p=RD-FbaWR87bmdHle_7Cwng)
 └── 📄 README.md
 ```
 
