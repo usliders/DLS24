@@ -32,7 +32,7 @@
 
 - **⚡ Локальный GPU запуск**    
 
-  [![Watch Video](https://img.shields.io/badge/Смотреть_видео-00C853?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/36f90805b2cc8e4cdcd0d421a5023916/?p=RD-FbaWR87bmdHle_7Cwng)
+  [![Watch Video](https://img.shields.io/badge/Смотреть_видео-00C853?logo=react&logoColor=white&logoWidth=30)](https://rutube.ru/video/private/36f90805b2cc8e4cdcd0d421a5023916/?p=RD-FbaWR87bmdHle_7Cwng)
   ```text
   Описание: Перенос изображения 2 фото. Демонстрация работы на локальном GPU. Длительность: 3:15
 
