@@ -18,30 +18,25 @@
 
 ### 🎬 Основные демонстрации
 - **🔊 Голосовой колаб-перенос**
+		[![Watch Video](https://img.shields.io/badge/Смотреть_видео-FF6F61?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/e59ea01ef65e585586f0572f386337c3/?p=0PWijFxG5hQqBWq5D4r09Q)
   ```text
-│
-└──           ├── 🎬   ```[![Watch Video](https://img.shields.io/badge/Смотреть_видео-FF6F61?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/e59ea01ef65e585586f0572f386337c3/?p=0PWijFxG5hQqBWq5D4r09Q)
-  ```text
-├── 📂
+├── 🎬
 │   ├── Описание: Перенос голоса с коллаборативным подходом
 │   ├── Длительность: 2:45
   ```
 
 - **🎨 Fooocus колаб-версия**
+		[![Watch Video](https://img.shields.io/badge/Смотреть_видео-0081CB?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/f06b249eb33d03b5e4f2240e059a43f6/?p=KCbj_Lcdo9wJwtLfXGyXdw)
   ```text
-│
-└──           ├── 🎬   ```[![Watch Video](https://img.shields.io/badge/Смотреть_видео-0081CB?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/f06b249eb33d03b5e4f2240e059a43f6/?p=KCbj_Lcdo9wJwtLfXGyXdw)
-  ```text
-├── 📂 
+├── 🎬 
 │   ├── Описание: Работа с Fooocus в колаб-среде
 │   ├── Длительность: 4:20
   ```
 
 - **⚡ Локальный GPU запуск**
-│
-└──           ├── 🎬 [![Watch Video](https://img.shields.io/badge/Смотреть_видео-00C853?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/36f90805b2cc8e4cdcd0d421a5023916/?p=RD-FbaWR87bmdHle_7Cwng)
+		[![Watch Video](https://img.shields.io/badge/Смотреть_видео-00C853?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/36f90805b2cc8e4cdcd0d421a5023916/?p=RD-FbaWR87bmdHle_7Cwng)
   ```text
-├── 📂 
+├── 🎬 
 │   ├── Описание: Демонстрация работы на локальном GPU
 │   ├── Длительность: 3:15
   ```
