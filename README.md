@@ -10,16 +10,17 @@
 
 Кросс-платформенное решение для нейропереноса стилей с интеграцией в Telegram Bot. Поддерживает работу как на локальных GPU-машинах, так и в Google Colab.
 
-```markdown
+
 ## 🎥 Видео-демонстрации проекта
-```
+
 > 📌 **Важно**: Для просмотра видео нажмите на заголовок. Может потребоваться авторизация на Rutube.
 
 
 ### 🎬 Основные демонстрации
 - **🔊 Голосовой колаб-перенос**
+  ```text
 │
-└──           ├── 🎬 [![Watch Video](https://img.shields.io/badge/Смотреть_видео-FF6F61?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/e59ea01ef65e585586f0572f386337c3/?p=0PWijFxG5hQqBWq5D4r09Q)
+└──           ├── 🎬   ```[![Watch Video](https://img.shields.io/badge/Смотреть_видео-FF6F61?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/e59ea01ef65e585586f0572f386337c3/?p=0PWijFxG5hQqBWq5D4r09Q)
   ```text
 ├── 📂
 │   ├── Описание: Перенос голоса с коллаборативным подходом
@@ -27,8 +28,9 @@
   ```
 
 - **🎨 Fooocus колаб-версия**
+  ```text
 │
-└──           ├── 🎬 [![Watch Video](https://img.shields.io/badge/Смотреть_видео-0081CB?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/f06b249eb33d03b5e4f2240e059a43f6/?p=KCbj_Lcdo9wJwtLfXGyXdw)
+└──           ├── 🎬   ```[![Watch Video](https://img.shields.io/badge/Смотреть_видео-0081CB?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/f06b249eb33d03b5e4f2240e059a43f6/?p=KCbj_Lcdo9wJwtLfXGyXdw)
   ```text
 ├── 📂 
 │   ├── Описание: Работа с Fooocus в колаб-среде
