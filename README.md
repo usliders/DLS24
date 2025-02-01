@@ -16,9 +16,9 @@
 ├── 📂 tests/
 │   └── 📂 docs/
 │       └── 📂 video_demos/
-│           ├── 📄 Проект_2024_Demo_голосовое_колаб_перенос_2023.mp4
-│           ├── 📄 Проект_2024_Demo_Fooocus_колаб.mp4
-│           └── 📄 Проект_2024_Demo_локальный_GPU_колаб_закончился.mp4
+│           ├── 📄 <iframe width="560" height="315" src="https://rutube.ru/video/private/e59ea01ef65e585586f0572f386337c3/?p=0PWijFxG5hQqBWq5D4r09Q" frameborder="0" allowfullscreen></iframe> Проект_2024_Demo_голосовое_колаб_перенос_2023.mp4
+│           ├── 📄 <iframe width="560" height="315" src="https://rutube.ru/video/private/f06b249eb33d03b5e4f2240e059a43f6/?p=KCbj_Lcdo9wJwtLfXGyXdw" frameborder="0" allowfullscreen></iframe> Проект_2024_Demo_Fooocus_колаб.mp4
+│           └── 📄 <iframe width="560" height="315" src="https://rutube.ru/video/private/36f90805b2cc8e4cdcd0d421a5023916/?p=RD-FbaWR87bmdHle_7Cwng" frameborder="0" allowfullscreen></iframe> Проект_2024_Demo_локальный_GPU_колаб_закончился.mp4
 └── 📄 README.md
 ```
 
