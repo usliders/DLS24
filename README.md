@@ -16,31 +16,28 @@
 
 ### 🎬 Основные демонстрации
   
-  ```markdown
-  
 - **🔊 Демо с озвучкой модель Casting Phoebe in Style**    
    
-  [![Watch Video](https://img.shields.io/badge/Смотреть_видео-FF6F61?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/e59ea01ef65e585586f0572f386337c3/?p=0PWijFxG5hQqBWq5D4r09Q){:target="_blank"}
+  [![Watch Video](https://img.shields.io/badge/Смотреть_видео-FF6F61?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/e59ea01ef65e585586f0572f386337c3/?p=0PWijFxG5hQqBWq5D4r09Q)
   ```text
   Описание: Перенос изображения 1 фото. Длительность: 2:45
   ```
 
 - **🎨 Демо с озвучкой модель Fooocus колаб-версия**    
    
-  [![Watch Video](https://img.shields.io/badge/Смотреть_видео-0081CB?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/f06b249eb33d03b5e4f2240e059a43f6/?p=KCbj_Lcdo9wJwtLfXGyXdw){:target="_blank"}
+  [![Watch Video](https://img.shields.io/badge/Смотреть_видео-0081CB?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/f06b249eb33d03b5e4f2240e059a43f6/?p=KCbj_Lcdo9wJwtLfXGyXdw)
   ```text
   Описание: Перенос изображения 1 фото. Работа с Fooocus. Длительность: 4:20
   ```
 
 - **⚡ Локальный GPU запуск**    
 
-  [![Watch Video](https://img.shields.io/badge/Смотреть_видео-00C853?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/36f90805b2cc8e4cdcd0d421a5023916/?p=RD-FbaWR87bmdHle_7Cwng){:target="_blank"}
+  [![Watch Video](https://img.shields.io/badge/Смотреть_видео-00C853?style=flat&logo=rutube&logoColor=white)](https://rutube.ru/video/private/36f90805b2cc8e4cdcd0d421a5023916/?p=RD-FbaWR87bmdHle_7Cwng)
   ```text
   Описание: Перенос изображения 2 фото. Демонстрация работы на локальном GPU. Длительность: 3:15
-  ```
 
   📌 Для лучшего отображения обновите страницу после первого клика по ссылке.
-  ```
+
 ---
 
 
