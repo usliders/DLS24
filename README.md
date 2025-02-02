@@ -21,14 +21,14 @@
   Описание: Перенос изображения 1 фото. Длительность: 2:45
   ```
 
-- **🎬🎨 Демо с озвучкой модель Fooocus колаб-версия**    
+- **🎬🎨 Демо модель Fooocus колаб-версия**    
    
   [![Watch Video](https://img.shields.io/badge/Смотреть_видео-0081CB?logo=react&logoColor=white&logoWidth=20)](https://rutube.ru/video/private/f06b249eb33d03b5e4f2240e059a43f6/?p=KCbj_Lcdo9wJwtLfXGyXdw)
   ```text
   Описание: Перенос изображения 1 фото. Работа с Fooocus. Длительность: 4:20
   ```
 
-- **🎬⚡ Локальный GPU запуск**    
+- **🎬⚡ Демо модель переноса + NST**    
 
   [![Watch Video](https://img.shields.io/badge/Смотреть_видео-00C853?logo=react&logoColor=white&logoWidth=20)](https://rutube.ru/video/private/36f90805b2cc8e4cdcd0d421a5023916/?p=RD-FbaWR87bmdHle_7Cwng)
   ```text
