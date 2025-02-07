@@ -171,6 +171,6 @@ pytest tests/
 
 📧 Контакты
 Автор: [Юрий]
-Курс: Deep Learning School 2023-2024
+Курс: Deep Learning School 2023-2024-2025
 Поддержка: [usliders@mail.ru]
 ```
